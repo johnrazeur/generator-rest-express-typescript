@@ -1,0 +1,13 @@
+{
+  "entity": "User",
+  "data": [
+    {
+      "username": "integrationTest",
+      "password": "$2a$08$bxscwPpZiZ3dKjTFzukbFuUQf3F/S98tXBg1pwnh.tIU9ixjLZCEO"
+    },
+    {
+      "username": "test",
+      "password": "password"
+    }
+  ]
+}

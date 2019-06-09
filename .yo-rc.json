@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Clément Lafont",
+      "authorEmail": "johnrazeur@gmail.com",
+      "authorUrl": "https://github.com/johnrazeur"
+    }
+  }
+}
