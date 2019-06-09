@@ -75,6 +75,8 @@ describe("generator-rest-express-typescript:app", () => {
       const expectedName = "myapp";
       const nameDir = path.basename(process.cwd());
       assert.fileContent("package.json", `"name": "${expectedName}"`);
+      assert.fileContent("README.md", `# ${expectedName}`);
+      assert.fileContent("README.md", "the description");
       assert.strictEqual(nameDir, expectedName);
     });
   });

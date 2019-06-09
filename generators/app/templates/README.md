@@ -1,7 +1,78 @@
-# Awesome Project Build with TypeORM
+# <%= name %>
 
-Steps to run this project:
+<%= description %>
 
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+## Quick Start
+
+```bash
+# install deps
+npm install
+
+# run in development mode
+# server will listen the 3000 port
+npm run start
+
+# run tests
+npm run test
+```
+You can run it in debug mode:
+
+```bash
+npm run debug
+```
+
+## Default endpoint
+
+This project comes with these endpoints:
+
+`POST` /auth/login 
+> Authenticate the user, return the auth token
+```json
+{
+    username: "myusername",
+    password: "mypassord"
+}
+```
+
+`POST` /auth/login 
+> Register the user
+```json
+{
+    username: "myusername",
+    password: "mypassord"
+}
+```
+
+`POST` auth/change-password
+> Change the user password, you need to put the auth token in the Authorization header
+
+`Authorization: Bearer theauthtoken`
+```json
+{
+    username: "myusername",
+    password: "mypassord"
+}
+```
+
+## Production
+
+To build the production files:
+
+```bash
+npm run build
+
+# start the server
+node build/lib/server.js
+```
+## Docker
+
+You can use docker during your developement process.
+First, build the docker image:
+```bash
+docker build -t myapp .
+```
+
+And run it:
+```bash
+docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
+```
