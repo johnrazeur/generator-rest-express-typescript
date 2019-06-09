@@ -70,6 +70,13 @@ describe("generator-rest-express-typescript:app", () => {
     it("shouldn't add Dockerfile", () => {
       assert.noFile("Dockerfile");
     });
+
+    it("should generate the same appname in every file", () => {
+      const expectedName = "myapp";
+      const nameDir = path.basename(process.cwd());
+      assert.fileContent("package.json", `"name": "${expectedName}"`);
+      assert.strictEqual(nameDir, expectedName);
+    });
   });
 
   describe("with docker", () => {
@@ -83,6 +90,22 @@ describe("generator-rest-express-typescript:app", () => {
 
     it("should add Dockerfile", () => {
       assert.file("Dockerfile");
+    });
+  });
+
+  describe("default install with option name", () => {
+    beforeAll(done => {
+      return helpers
+        .run(path.join(__dirname, "../generators/app"))
+        .withArguments("argumentName")
+        .on("end", done);
+    });
+
+    it("should generate the same appname in every file", () => {
+      const expectedName = "argumentName";
+      const nameDir = path.basename(process.cwd());
+      assert.fileContent("package.json", `"name": "${expectedName}"`);
+      assert.strictEqual(nameDir, expectedName);
     });
   });
 });
