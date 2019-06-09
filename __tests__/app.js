@@ -9,6 +9,7 @@ describe("generator-rest-express-typescript:app", () => {
       return helpers
         .run(path.join(__dirname, "../generators/app"))
         .withPrompts({ description: "the description" })
+        .withPrompts({ docker: false })
         .on("end", done);
     });
 
@@ -64,6 +65,24 @@ describe("generator-rest-express-typescript:app", () => {
       assert.fileContent("package.json", '"build"');
       assert.fileContent("package.json", '"test"');
       assert.fileContent("package.json", '"debug"');
+    });
+
+    it("shouldn't add Dockerfile", () => {
+      assert.noFile("Dockerfile");
+    });
+  });
+
+  describe("with docker", () => {
+    beforeAll(done => {
+      return helpers
+        .run(path.join(__dirname, "../generators/app"))
+        .withPrompts({ description: "the description" })
+        .withPrompts({ docker: true })
+        .on("end", done);
+    });
+
+    it("should add Dockerfile", () => {
+      assert.file("Dockerfile");
     });
   });
 });

@@ -27,6 +27,18 @@ yo rest-express-typescript myapp
 * Run `build` to create the production version
 * Run `test` to lauch jest test
 
+## Docker
+
+You can use docker during your developement process.
+First, build the docker image:
+```bash
+docker build -t myapp .
+```
+
+And run it:
+```bash
+docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
+```
 ## TODO 🚧  
 
 * Add Docker

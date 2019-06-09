@@ -29,6 +29,11 @@ module.exports = class extends Generator {
         type: "input",
         name: "description",
         message: `App description [${this.description}]`
+      },
+      {
+        type: "confirm",
+        name: "docker",
+        message: "Would you like to enable the Cool feature?"
       }
     ];
 
@@ -44,6 +49,7 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       this.name = props.name || this.name;
       this.description = props.description || this.description;
+      this.docker = props.docker;
     });
   }
 
@@ -51,7 +57,17 @@ module.exports = class extends Generator {
     const src = this.sourceRoot();
     const dest = this.destinationPath(this.name);
 
-    this.fs.copy(src, dest);
+    const copyOpts = {
+      globOptions: {
+        ignore: []
+      }
+    };
+
+    if (!this.docker) {
+      copyOpts.globOptions.ignore.push("**/Dockerfile");
+    }
+
+    this.fs.copy(src, dest, copyOpts);
 
     const files = ["package.json", "README.md"];
 
