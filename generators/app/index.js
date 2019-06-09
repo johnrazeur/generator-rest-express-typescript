@@ -33,7 +33,7 @@ module.exports = class extends Generator {
       {
         type: "confirm",
         name: "docker",
-        message: "Would you like to enable the Cool feature?"
+        message: "Would you like to enable Docker ?"
       }
     ];
 
