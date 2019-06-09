@@ -72,7 +72,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": "johnrazeur/generator-rest-express-typescript",
   "license": "MIT"
