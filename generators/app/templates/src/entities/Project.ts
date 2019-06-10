@@ -2,12 +2,9 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
-    ManyToOne,
     CreateDateColumn,
     UpdateDateColumn,
-    ObjectType
 } from "typeorm";
-import { Organization } from "./Organization";
 
 @Entity()
 export class Project {
@@ -16,9 +13,6 @@ export class Project {
 
     @Column()
     public name: string;
-
-    @ManyToOne((): ObjectType<Organization> => Organization)
-    public organization: Organization;
 
     @Column()
     @CreateDateColumn()
