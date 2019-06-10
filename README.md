@@ -41,9 +41,9 @@ docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
 ```
 ## TODO 🚧  
 
-* Add Docker
 * Ready to use CI/CD with Travis
-* Write api doc
+* Write api doc (Swagger ?)
+* Serverless export
 
 ## Contribute
 
