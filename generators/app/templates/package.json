@@ -33,6 +33,7 @@
       "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/lib/server.ts",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
       "debug": "cross-env TZ=UTC NODE_ENV=development tsnd --inspect --respawn ./src/lib/server.ts",
+      "pretest": "eslint src/**/*.ts",
       "test": "cross-env NODE_ENV=test jest",
       "build": "tsc"
    },
