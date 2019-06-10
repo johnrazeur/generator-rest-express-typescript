@@ -65,6 +65,7 @@ module.exports = class extends Generator {
 
     if (!this.docker) {
       copyOpts.globOptions.ignore.push("**/Dockerfile");
+      copyOpts.globOptions.ignore.push("**/dockerignore");
     }
 
     this.fs.copy(src, dest, copyOpts);
@@ -94,6 +95,13 @@ module.exports = class extends Generator {
       this.destinationPath(`${this.name}`, "eslintrc.js"),
       this.destinationPath(`${this.name}`, ".eslintrc.js")
     );
+
+    if (this.docker) {
+      this.fs.move(
+        this.destinationPath(`${this.name}`, "dockerignore"),
+        this.destinationPath(`${this.name}`, ".dockerignore")
+      );
+    }
 
     mkdirp(this.destinationPath(`${this.name}`, "src", "migration"));
   }

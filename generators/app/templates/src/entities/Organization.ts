@@ -7,18 +7,18 @@ import {
     UpdateDateColumn,
     ObjectType
 } from "typeorm";
-import { Organization } from "./Organization";
+import { User } from './User';
 
 @Entity()
-export class Project {
+export class Organization {
     @PrimaryGeneratedColumn()
     public id: number;
 
     @Column()
     public name: string;
 
-    @ManyToOne((): ObjectType<Organization> => Organization)
-    public organization: Organization;
+    @ManyToOne((): ObjectType<User> => User)
+    public user: User;
 
     @Column()
     @CreateDateColumn()

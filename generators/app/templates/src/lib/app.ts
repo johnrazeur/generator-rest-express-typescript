@@ -5,7 +5,7 @@ import routes from "../routes";
 class App {
     public app: express.Application;
 
-    constructor() {
+    public constructor() {
         this.app = express();
         this.config();
     }

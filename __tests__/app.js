@@ -69,6 +69,7 @@ describe("generator-rest-express-typescript:app", () => {
 
     it("shouldn't add Dockerfile", () => {
       assert.noFile("Dockerfile");
+      assert.noFile(".dockerignore");
     });
 
     it("should generate the same appname in every file", () => {
@@ -92,6 +93,7 @@ describe("generator-rest-express-typescript:app", () => {
 
     it("should add Dockerfile", () => {
       assert.file("Dockerfile");
+      assert.file(".dockerignore");
     });
   });
 

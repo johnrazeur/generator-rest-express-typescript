@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
 import { User } from "../entities/User";
 import { UserService } from '../services/UserService';
 
 class UserController {
-    public async newUser(request: Request, response: Response, next: NextFunction) {
+    public async newUser(request: Request, response: Response): Promise<void> {
         //Get parameters from the body
         let { username, password } = request.body;
         let user = new User();
@@ -13,7 +13,7 @@ class UserController {
 
         const userService = new UserService();
         try {
-            const user = await userService.create(username, password);
+            await userService.create(username, password);
             response.status(201).send({
                 message: "User created"
             });
