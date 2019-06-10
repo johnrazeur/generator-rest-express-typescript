@@ -44,6 +44,7 @@ docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
 * Ready to use CI/CD with Travis
 * Write api doc (Swagger ?)
 * Serverless export
+* Add subcommand to create a new endpoint
 
 ## Contribute
 
