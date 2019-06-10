@@ -4,6 +4,8 @@
 
 ## Quick Start
 
+First modify the `ormconfig.json` file and put your database configuration.
+
 ```bash
 # install deps
 npm install
