@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.0] - 2019-06-14
+### Added
+* Openapi documentation
+* Logs
 
 ## [1.2.0] - 2019-06-10
 ### Added
