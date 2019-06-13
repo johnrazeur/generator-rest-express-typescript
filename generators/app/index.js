@@ -70,7 +70,12 @@ module.exports = class extends Generator {
 
     this.fs.copy(src, dest, copyOpts);
 
-    const files = ["package.json", "README.md"];
+    const files = [
+      "package.json",
+      "README.md",
+      "swagger.json",
+      "swaggerDef.js"
+    ];
 
     const opts = {
       name: this.name,

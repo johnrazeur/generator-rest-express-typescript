@@ -56,6 +56,15 @@ This project comes with these endpoints:
 }
 ```
 
+## Documentation
+
+The swagger document is available at: http://localhost:3000
+
+If you modify the endpoint documentation or add a new one, run the following command:
+```bash
+npm run swagger:generate
+```
+
 ## Production
 
 To build the production files:

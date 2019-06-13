@@ -55,7 +55,9 @@ describe("generator-rest-express-typescript:app", () => {
         "src/services/UserService.ts",
         "src/entities",
         "src/entities/Project.ts",
-        "src/entities/User.ts"
+        "src/entities/User.ts",
+        "swaggerDef.js",
+        "swagger.json"
       ]);
     });
 
@@ -65,6 +67,7 @@ describe("generator-rest-express-typescript:app", () => {
       assert.fileContent("package.json", '"build"');
       assert.fileContent("package.json", '"test"');
       assert.fileContent("package.json", '"debug"');
+      assert.fileContent("package.json", '"swagger:generate"');
     });
 
     it("shouldn't add Dockerfile", () => {
@@ -72,12 +75,35 @@ describe("generator-rest-express-typescript:app", () => {
       assert.noFile(".dockerignore");
     });
 
-    it("should generate the same appname in every file", () => {
+    it("should generate variables in every file", () => {
       const expectedName = "myapp";
+      const expectedDescription = "the description";
+      const expectedVersion = "1.0.0";
       const nameDir = path.basename(process.cwd());
       assert.fileContent("package.json", `"name": "${expectedName}"`);
+      assert.fileContent(
+        "package.json",
+        `"description": "${expectedDescription}"`
+      );
+      assert.fileContent("package.json", `"version": "${expectedVersion}"`);
+
       assert.fileContent("README.md", `# ${expectedName}`);
-      assert.fileContent("README.md", "the description");
+      assert.fileContent("README.md", expectedDescription);
+
+      assert.fileContent("swagger.json", `"title": "${expectedName}"`);
+      assert.fileContent(
+        "swagger.json",
+        `"description": "${expectedDescription}"`
+      );
+      assert.fileContent("swagger.json", `"version": "${expectedVersion}"`);
+
+      assert.fileContent("swaggerDef.js", `title: '${expectedName}'`);
+      assert.fileContent(
+        "swaggerDef.js",
+        `description: '${expectedDescription}'`
+      );
+      assert.fileContent("swaggerDef.js", `version: '${expectedVersion}'`);
+
       assert.strictEqual(nameDir, expectedName);
     });
   });

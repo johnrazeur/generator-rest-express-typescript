@@ -18,6 +18,10 @@ Then generate your new project:
 ```bash
 yo rest-express-typescript myapp
 ```
+## Very coolos features
+
+* generate openapi documention with a simple command, and read it via swagger-ui
+* Logs with morgan
 
 ## Getting Started
 
@@ -42,7 +46,6 @@ docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
 ## TODO 🚧  
 
 * Ready to use CI/CD with Travis
-* Write api doc (Swagger ?)
 * Serverless export
 * Add subcommand to create a new endpoint
 

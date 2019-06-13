@@ -7,6 +7,37 @@ import { User } from "../entities/User";
 import config from "../config/config";
 
 export class AuthController {
+    /**
+     * @swagger
+     *
+     * /auth/login:
+     *   post:
+     *     summary: Login to the application
+     *     tags:
+     *       - auth
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               username:
+     *                 type: string
+     *               password:
+     *                 type: string
+     *     responses:
+     *       200:
+     *         content:
+     *           application/json:
+     *              schema:
+     *                type: object
+     *                properties:
+     *                  token:
+     *                    type: string
+     *       401:
+     *         description: Invalid credential
+     */
     public async login(req: Request, res: Response): Promise<void> {
         //Check if username and password are set
         let { username, password } = req.body;
@@ -48,6 +79,35 @@ export class AuthController {
         });
     };
 
+    /**
+     * @swagger
+     *
+     * /auth/change-password:
+     *   post:
+     *     summary: Change the user password
+     *     tags:
+     *       - auth
+     *     security:
+     *       BearerAuth: []
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               oldPassword:
+     *                 type: string
+     *               newPassword:
+     *                 type: string
+     *     responses:
+     *       204:
+     *         description: The password was changed successfully
+     *       400:
+     *         description: Invalid parameter
+     *       401:
+     *         description: User not found
+     */
     public async changePassword(req: Request, res: Response): Promise<void> {
         //Get ID from JWT
         const id = res.locals.jwtPayload.userId;
