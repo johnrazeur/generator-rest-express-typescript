@@ -28,6 +28,7 @@ export class AuthController {
      *                 type: string
      *     responses:
      *       200:
+     *         description: Login success 
      *         content:
      *           application/json:
      *              schema:
@@ -88,7 +89,7 @@ export class AuthController {
      *     tags:
      *       - auth
      *     security:
-     *       BearerAuth: []
+     *       - BearerAuth: []
      *     requestBody:
      *       required: true
      *       content:

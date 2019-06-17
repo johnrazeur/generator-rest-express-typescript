@@ -25,6 +25,7 @@ class UserController {
      *                 type: string
      *     responses:
      *       201:
+     *         description: User created
      *         content:
      *           application/json:
      *              schema:

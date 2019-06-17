@@ -43,6 +43,7 @@
         },
         "responses": {
           "200": {
+            "description": "Login success",
             "content": {
               "application/json": {
                 "schema": {
@@ -68,9 +69,11 @@
         "tags": [
           "auth"
         ],
-        "security": {
-          "BearerAuth": []
-        },
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -128,6 +131,7 @@
         },
         "responses": {
           "201": {
+            "description": "User created",
             "content": {
               "application/json": {
                 "schema": {
