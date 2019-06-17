@@ -23,6 +23,9 @@ You can run it in debug mode:
 npm run debug
 ```
 
+Run `npm run swagger:generate`to generate the swagger file from code.
+
+
 ## Default endpoint
 
 This project comes with these endpoints:

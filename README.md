@@ -26,11 +26,11 @@ yo rest-express-typescript myapp
 ## Getting Started
 
 * Run `npm start` to preview and watch for changes
-* Run `migration:run` to run migration scripts
-* Run `debug` to lauchn debug mode
-* Run `build` to create the production version
-* Run `test` to lauch jest test
-
+* Run `npm run migration:run` to run migration scripts
+* Run `npm run debug` to lauchn debug mode
+* Run `npm run build` to create the production version
+* Run `npm run test` to lauch jest test
+* Run `npm run swagger:generate`to generate the swagger file from code
 ## Docker
 
 You can use docker during your developement process.
@@ -45,8 +45,6 @@ docker run -p 3000:3000 -v $(pwd):/usr/src/app myapp
 ```
 ## TODO 🚧  
 
-* Ready to use CI/CD with Travis
-* Serverless export
 * Add subcommand to create a new endpoint
 
 ## Contribute
@@ -55,7 +53,7 @@ See the [contributing docs](contributing.md).
 
 ## License
 
-MIT © [Clément Lafont]()
+MIT © [Clément Lafont](johnrazeur@gmail.com)
 
 
 [npm-image]: https://badge.fury.io/js/generator-rest-express-typescript.svg
